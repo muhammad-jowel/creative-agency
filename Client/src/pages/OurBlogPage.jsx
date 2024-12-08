@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import Layout from '../components/layout/Layout';
 import Blog from '../components/blog/Blog';
 import BlogStore from '../store/BlogStore';
-// import Contact from '../components/contact/contact';
+import Contact from '../components/contact/Contact';
+
 
 const OurBlogPage = () => {
 
@@ -19,7 +20,7 @@ const OurBlogPage = () => {
     return (
         <Layout>
             <Blog/>
-            {/* <Contact/> */}
+            <Contact/>
         </Layout>
     );
 };

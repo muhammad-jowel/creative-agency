@@ -3,7 +3,8 @@ import Layout from '../components/layout/Layout';
 import Team from '../components/team/Team';
 import TeamStore from '../store/TeamStore';
 import About from '../components/about/About';
-// import Contact from '../components/contact/contact';
+import Contact from '../components/contact/Contact';
+
 
 const AboutPage = () => {
 
@@ -19,7 +20,7 @@ const AboutPage = () => {
         <Layout>
             <About/>
             <Team/>
-            {/* <Contact/> */}
+            <Contact/>
         </Layout>
     );
 };
