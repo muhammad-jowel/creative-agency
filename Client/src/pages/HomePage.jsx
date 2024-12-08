@@ -4,11 +4,11 @@ import About from '../components/about/About'
 import Service from '../components/service/Service';
 import Blog from '../components/blog/Blog';
 import Hero from '../components/hero/Hero';
-import Contact from '../components/contact/contact';
 import BlogStore from '../store/BlogStore';
 import ServiceStore from '../store/ServiceStore';
 import Team from '../components/team/Team';
 import TeamStore from '../store/TeamStore';
+import Contact from '../components/contact/contact';
 
 const HomePage = () => {
 

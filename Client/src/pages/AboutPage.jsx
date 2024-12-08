@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Layout from '../components/layout/Layout';
-import Contact from '../components/contact/contact';
-import About from '../components/about/about';
 import Team from '../components/team/Team';
 import TeamStore from '../store/TeamStore';
+import About from '../components/about/About';
+import Contact from '../components/contact/contact';
 
 const AboutPage = () => {
 
