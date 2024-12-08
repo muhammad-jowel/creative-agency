@@ -3,7 +3,7 @@ import Layout from '../components/layout/Layout';
 import BlogDetails from '../components/blog/BlogDetails';
 import BlogStore from '../store/BlogStore';
 import { useParams } from 'react-router-dom';
-import Contact from '../components/contact/contact';
+// import Contact from '../components/contact/contact';
 
 const BlogDetailsPage = () => {
 
@@ -22,7 +22,7 @@ const BlogDetailsPage = () => {
     return (
         <Layout>
             <BlogDetails/>
-            <Contact/>
+            {/* <Contact/> */}
         </Layout>
     );
 };
