@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import Layout from '../components/layout/Layout';
-import Contact from '../components/contact/contact';
 import Service from '../components/service/Service';
 import ServiceStore from '../store/ServiceStore';
+import Contact from '../components/contact/contact';
+
 
 const OurServicePage = () => {
 
