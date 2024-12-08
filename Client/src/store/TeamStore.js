@@ -7,7 +7,7 @@ const TeamStore = create((set) => ({
     TeamList : null,
     TeamListRequest : async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/Read-Team')
+            const response = await axios.get('https://creative-agency-lake-five.vercel.app/api/Read-Team')
             const data = await response.data;
             set({TeamList : data})
         } catch (error) {
@@ -31,14 +31,14 @@ const TeamStore = create((set) => ({
 
     CreateTeamRequest : async (postBody) => {
         try {
-            let response = await axios.post(`http://localhost:5000/api/Create-Team`, postBody, {
+            let response = await axios.post(`https://creative-agency-lake-five.vercel.app/api/Create-Team`, postBody, {
                 headers: {
                     token: Cookies.get('token')
                 }
             });
             return response.data;
         } catch (e) {
-            console.error('Error creating service:', e)
+            console.error('Error creating Team:', e)
         }
     },
 
@@ -46,7 +46,7 @@ const TeamStore = create((set) => ({
     // Remove a Team
     DeleteTeam : async (id) => {
         try {
-            await axios.post(`http://localhost:5000/api/Delete-Team`, {id : id}, {
+            await axios.post(`https://creative-agency-lake-five.vercel.app/api/Delete-Team`, {id : id}, {
                 headers: {
                     token: Cookies.get('token')
                 }
@@ -62,7 +62,7 @@ const TeamStore = create((set) => ({
     // Update a Team
     UpdateTeamRequest : async (postBody) => {
         try {
-            await axios.post(`http://localhost:5000/api/Update-Team`, postBody , {
+            await axios.post(`https://creative-agency-lake-five.vercel.app/api/Update-Team`, postBody , {
                 headers: {
                     token: Cookies.get('token')
                 }

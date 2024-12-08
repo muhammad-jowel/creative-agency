@@ -9,7 +9,7 @@ const BlogStore = create((set) => ({
     BlogList : null,
     BlogListRequest : async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/Read-Blog')
+            const response = await axios.get('https://creative-agency-lake-five.vercel.app/api/Read-Blog')
             const data = await response.data;
             set({BlogList : data})
         } catch (error) {
@@ -21,7 +21,7 @@ const BlogStore = create((set) => ({
     BlogListDetails : null,
     BlogListDetailsRequest : async (id) => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/Blog-details/${id}`)
+            const response = await axios.get(`https://creative-agency-lake-five.vercel.app/api/Blog-details/${id}`)
             console.log(response.data)
             const data = await response.data;
             set({BlogListDetails : data})
@@ -46,7 +46,7 @@ const BlogStore = create((set) => ({
 
     CreateBlogRequest : async (postBody) => {
         try {
-            let response = await axios.post(`http://localhost:5000/api/Create-Blog`, postBody, {
+            let response = await axios.post(`https://creative-agency-lake-five.vercel.app/api/Create-Blog`, postBody, {
                 headers: {
                     token: Cookies.get('token')
                 }
@@ -61,7 +61,7 @@ const BlogStore = create((set) => ({
     // Remove a blog
     DeleteBlog : async (id) => {
         try {
-            await axios.post(`http://localhost:5000/api/Delete-Blog`, {id : id}, {
+            await axios.post(`https://creative-agency-lake-five.vercel.app/api/Delete-Blog`, {id : id}, {
                 headers: {
                     token: Cookies.get('token')
                 }
@@ -77,7 +77,7 @@ const BlogStore = create((set) => ({
     // Update a blog
     UpdateBlogRequest : async (postBody) => {
         try {
-            await axios.post(`http://localhost:5000/api/Update-Blog`, postBody, {
+            await axios.post(`https://creative-agency-lake-five.vercel.app/api/Update-Blog`, postBody, {
                 headers: {
                     token: Cookies.get('token')
                 }

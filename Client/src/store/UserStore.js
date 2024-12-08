@@ -27,7 +27,7 @@ const UserStore = create((set) => ({
     // Register Request-
     RegisterRequest : async (postBody) => {
         try {
-            let response = await axios.post(`http://localhost:5000/api/Registration`, postBody);
+            let response = await axios.post(`https://creative-agency-lake-five.vercel.app/api/Registration`, postBody);
             return response.data;
         } catch (e) {
             console.error('Error registering user:', e)
@@ -51,7 +51,7 @@ const UserStore = create((set) => ({
     // Login Request
     LoginRequest : async (postBody) => {
         try {
-            let response = await axios.post(`http://localhost:5000/api/Login`, postBody);
+            let response = await axios.post(`https://creative-agency-lake-five.vercel.app/api/Login`, postBody);
             sessionStorage.setItem('email', postBody.email);
             return response.data;
         } catch (e) {
@@ -77,7 +77,7 @@ const UserStore = create((set) => ({
     VerifyLoginRequest : async (otp) => {
         try {  
             let email = sessionStorage.getItem('email');
-            let response = await axios.post(`http://localhost:5000/api/VerifyLogin`, {email: email, otp: otp});
+            let response = await axios.post(`https://creative-agency-lake-five.vercel.app/api/VerifyLogin`, {email: email, otp: otp});
             Cookie.set('token', response.data.token);
             return response.data
         } catch (e) {
@@ -88,78 +88,15 @@ const UserStore = create((set) => ({
 
     // User Logout Request
     LogoutRequest : async () => {
-        let response = await axios.get(`http://localhost:5000/api/Logout`, {
+        let response = await axios.get(`https://creative-agency-lake-five.vercel.app/api/Logout`, {
             headers : {
                 token: Cookies.get('token')
             }
         });
         set({isFormSubmit: false});
         return response.data['status'] === 'success';
-    },
+    }
 
-
-
-    // ProfileForm : {
-    //     cus_add: "",
-    //     cus_city : "",
-    //     cus_country : "",
-    //     cus_fax : "",
-    //     cus_name : "",
-    //     cus_phone : "",
-    //     cus_postcode : "",
-    //     cus_state : "",
-    //     ship_add : "",
-    //     ship_city : "",
-    //     ship_country : "",
-    //     ship_name : "",
-    //     ship_phone : "",
-    //     ship_postcode : "",
-    //     ship_state : ""
-    // },
-    // ProfileFormOnChange : (name, value) => {
-    //     set((state) => ({
-    //         ProfileForm: {
-    //             ...state.ProfileForm,
-    //             [name]: value
-    //         }
-    //     }))
-    // },
-
-
-    // User Profile Details
-    // ProfileDetails : null,
-    // ProfileDetailsRequest : async () => {
-    //     try {
-    //         let response = await axios.get(`http://localhost:5050/api/ReadUserProfile`, {
-    //             headers: {
-    //                 token: Cookies.get('token')
-    //             }
-    //         })
-    //         if (response.data['data'].length > 0) {
-    //             set({ProfileDetails : response.data['data'][0]});
-    //             set({ProfileForm : response.data['data'][0]});
-    //         } else {
-    //             set({ProfileDetails : []});
-    //         }
-    //     } catch (err) {
-    //         unauthorized(err.response.status);
-    //     }
-    // },
-
-
-    // ProfileUpdateRequest : async (PostBody) => {
-    //     try {
-    //         set({ProfileDetails : null});
-    //         let response = await axios.post(`http://localhost:5050/api/UpdateUserProfile`, PostBody, {
-    //             headers: {
-    //                 token: Cookies.get('token')
-    //             }
-    //         });
-    //         return response.data['status'] === 'success';
-    //     } catch (err) {
-    //         unauthorized(err.response.status);
-    //     }
-    // },
 
 
 }));

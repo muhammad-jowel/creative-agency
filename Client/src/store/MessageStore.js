@@ -8,7 +8,7 @@ const MessageStore = create((set) => ({
     MessageList : null,
     MessageListRequest : async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/Read-Message', {
+            const response = await axios.get('https://creative-agency-lake-five.vercel.app/api/Read-Message', {
                 headers: {
                     token: Cookies.get('token')
                 }
@@ -24,7 +24,7 @@ const MessageStore = create((set) => ({
     // Remove a massage
     DeleteMassage : async (id) => {
         try {
-            await axios.post(`http://localhost:5000/api/Delete-Message`, {id : id}, {
+            await axios.post(`https://creative-agency-lake-five.vercel.app/api/Delete-Message`, {id : id}, {
                 headers: {
                     token: Cookies.get('token')
                 }

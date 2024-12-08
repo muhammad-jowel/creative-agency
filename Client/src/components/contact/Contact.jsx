@@ -17,7 +17,7 @@ const Contact = () => {
             message
         }
         
-        let response = await axios.post("http://localhost:5000/api/Send-Message", postBody)
+        let response = await axios.post("https://creative-agency-lake-five.vercel.app/api/Send-Message", postBody)
         
         if (response.data.status === 'success') {
             toast.success('Your message has been sent successfully')

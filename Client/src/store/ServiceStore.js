@@ -8,7 +8,7 @@ const ServiceStore = create((set) => ({
     ServiceList : null,
     ServiceListRequest : async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/Read-Service')
+            const response = await axios.get('https://creative-agency-lake-five.vercel.app/api/Read-Service')
             const data = await response.data;
             set({ServiceList : data})
         } catch (error) {
@@ -32,7 +32,7 @@ const ServiceStore = create((set) => ({
 
     CreateServiceRequest : async (postBody) => {
         try {
-            let response = await axios.post(`http://localhost:5000/api/Create-Service`, postBody, {
+            let response = await axios.post(`https://creative-agency-lake-five.vercel.app/api/Create-Service`, postBody, {
                 headers: {
                     token: Cookies.get('token')
                 }
@@ -47,7 +47,7 @@ const ServiceStore = create((set) => ({
     // Remove a blog
     DeleteService : async (id) => {
         try {
-            await axios.post(`http://localhost:5000/api/Delete-Service`, {id : id}, {
+            await axios.post(`https://creative-agency-lake-five.vercel.app/api/Delete-Service`, {id : id}, {
                 headers: {
                     token: Cookies.get('token')
                 }
@@ -63,7 +63,7 @@ const ServiceStore = create((set) => ({
     // Update a blog
     UpdateServiceRequest : async (postBody) => {
         try {
-            await axios.post(`http://localhost:5000/api/Update-Service`, postBody , {
+            await axios.post(`https://creative-agency-lake-five.vercel.app/api/Update-Service`, postBody , {
                 headers: {
                     token: Cookies.get('token')
                 }
