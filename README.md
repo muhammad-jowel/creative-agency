@@ -16,6 +16,10 @@ The Creative Agency application enables users to browse creative services and pr
 - **Password**: `123456`
 - **OTP for Login Verification**: `123456`
 
+### Server Link
+- [Blog List Request](https://creative-agency-lake-five.vercel.app/api/Read-Blog)
+
+
 ---
 
 ## Key Features
