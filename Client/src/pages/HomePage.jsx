@@ -8,7 +8,6 @@ import BlogStore from '../store/BlogStore';
 import ServiceStore from '../store/ServiceStore';
 import Team from '../components/team/Team';
 import TeamStore from '../store/TeamStore';
-import Contact from '../components/contact/contact';
 
 const HomePage = () => {
 
@@ -31,7 +30,7 @@ const HomePage = () => {
             <Service/>
             <Blog/>
             <Team/>
-            <Contact/>
+            {/* <Contact/> */}
         </Layout>
     );
 };
