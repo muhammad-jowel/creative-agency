@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from './pages/HomePage';
 import OurServicePage from './pages/OurServicePage';
-import OurBlogPage from './pages/OurBlogPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import AboutDetailsPage from './pages/AboutDetailsPage';
@@ -16,6 +15,7 @@ import AdminServicePage from './pages/AdminPages/AdminServicePage';
 import AdminTeamPage from './pages/AdminPages/AdminTeamPage';
 import AdminMessagePage from './pages/AdminPages/AdminMessagePage';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import OurBlogPage from './pages/OurBlogPage';
 
 
 
