@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ServiceStore from '../../store/ServiceStore';
 import { toast } from 'react-toastify';
 import { Button, Form, Modal } from 'react-bootstrap';
+import AdminSkeleton from '../../skeleton/AdminSkeleton';
 
 const AdminService = () => {
 
@@ -88,25 +89,35 @@ const AdminService = () => {
               </tr>
             </thead>
             <tbody>
-              {ServiceList?.data?.map((item, index) => (
-                <tr key={index}>
-                  <td>
-                    <p className="text-decoration-none">
-                      {item['title']}
-                    </p>
-                  </td>
-                  <td>{item['description']}</td>
-                  <td>{item['createdAt']}</td>
-                  <td>
-                    <Button onClick={() => UpdateModalShow(item)} variant="primary" size="sm" className="me-2">
-                      <i className="bi bi-pencil"></i> Edit
-                    </Button>
-                    <Button onClick={async () => { await Delete(item['_id']) }} variant="danger" size="sm">
-                      <i className="bi bi-trash"></i> Delete
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+              {
+                ServiceList && ServiceList.data ? (
+                  ServiceList?.data?.map((item, index) => (
+                    <tr key={index}>
+                      <td>
+                        <p className="text-decoration-none">
+                          {item['title']}
+                        </p>
+                      </td>
+                      <td>{item['description']}</td>
+                      <td>{item['createdAt']}</td>
+                      <td>
+                        <Button onClick={() => UpdateModalShow(item)} variant="primary" size="sm" className="me-2">
+                          <i className="bi bi-pencil"></i> Edit
+                        </Button>
+                        <Button onClick={async () => { await Delete(item['_id']) }} variant="danger" size="sm">
+                          <i className="bi bi-trash"></i> Delete
+                        </Button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                      <td colSpan="4">
+                        <AdminSkeleton />
+                      </td>
+                  </tr>
+                )
+              }
             </tbody>
           </table>
         </div>

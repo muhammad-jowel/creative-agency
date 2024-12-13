@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TeamStore from '../../store/TeamStore';
 import { toast } from 'react-toastify';
 import { Button, Modal, Form } from 'react-bootstrap';
+import AdminSkeleton from '../../skeleton/AdminSkeleton';
 
 const AdminTeam = () => {
     
@@ -91,24 +92,35 @@ const AdminTeam = () => {
               </tr>
             </thead>
             <tbody>
-              {/* Example Rows */}
-              {TeamList?.data?.map((item, index) => {
-                  return (
-                      <tr key={index}>
-                          <td>{item['name']}</td>
-                          <td>{item['designation']}</td>
-                          <td>{item['createdAt']}</td>
-                          <td>
-                              <Button onClick={() => UpdateModalShow(item)} variant="primary" size="sm" className="me-2">
-                                  <i className="bi bi-pencil"></i> Edit
-                              </Button>
-                              <Button onClick={async () => {await Delete(item['_id'])}} variant="danger" size="sm">
-                                  <i className="bi bi-trash"></i> Delete
-                              </Button>
-                          </td>
-                      </tr>
-                  )
-              })}
+              
+              {
+                TeamList && TeamList.data ? (
+                  TeamList?.data?.map((item, index) => {
+                    return (
+                        <tr key={index}>
+                            <td>{item['name']}</td>
+                            <td>{item['designation']}</td>
+                            <td>{item['createdAt']}</td>
+                            <td>
+                                <Button onClick={() => UpdateModalShow(item)} variant="primary" size="sm" className="me-2">
+                                    <i className="bi bi-pencil"></i> Edit
+                                </Button>
+                                <Button onClick={async () => {await Delete(item['_id'])}} variant="danger" size="sm">
+                                    <i className="bi bi-trash"></i> Delete
+                                </Button>
+                            </td>
+                        </tr>
+                    )
+                })
+                ) : (
+                  <tr>
+                      <td colSpan="4">
+                        <AdminSkeleton />
+                      </td>
+                  </tr>
+                )
+              }
+
             </tbody>
           </table>
         </div>

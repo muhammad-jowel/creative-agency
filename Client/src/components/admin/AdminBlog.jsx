@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import BlogStore from '../../store/BlogStore';
 import { toast } from 'react-toastify';
+import AdminSkeleton from '../../skeleton/AdminSkeleton';
 
 const AdminBlog = () => {
 
@@ -93,24 +94,35 @@ const AdminBlog = () => {
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
-              {BlogList?.data?.map((item, index) => (
-                
-                <tr key={index}>
-                  <td>{item['title']}</td>
-                  <td>{item['sortContent']}</td>
-                  <td>{item['createdAt']}</td>
-                  <td>
-                    <Button onClick={() => UpdateModalShow(item)} variant="primary" size="sm" className="me-2">
-                      <i className="bi bi-pencil"></i> Edit
-                    </Button>
-                    <Button onClick={async () => {await Delete(item['_id'])}} variant="danger" size="sm">
-                      <i className="bi bi-trash"></i> Delete
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+              <tbody>
+                {
+                  BlogList && BlogList.data ? (
+                    BlogList.data.map((item, index) => (
+                      <tr key={index}>
+                        <td>{item.title}</td>
+                        <td>{item.sortContent}</td>
+                        <td>{item.createdAt}</td>
+                        <td>
+                          <Button onClick={() => UpdateModalShow(item)} variant="primary" size="sm" className="me-2">
+                            <i className="bi bi-pencil"></i> Edit
+                          </Button>
+                          <Button onClick={async () => await Delete(item._id)} variant="danger" size="sm">
+                            <i className="bi bi-trash"></i> Delete
+                          </Button>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="4">
+                        <AdminSkeleton />
+                      </td>
+                    </tr>
+                  )
+                }
             </tbody>
+
+
           </table>
         </div>
       </div>

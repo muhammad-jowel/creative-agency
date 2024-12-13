@@ -1,6 +1,7 @@
 import React from 'react';
 import MessageStore from '../../store/MessageStore';
 import { toast } from 'react-toastify';
+import AdminSkeleton from '../../skeleton/AdminSkeleton';
 
 const AdminMessage = () => {
 
@@ -41,20 +42,28 @@ const AdminMessage = () => {
                     <tbody>
                     
                         {
-                            MessageList?.data?.map((item, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{item['fullName']}</td>
-                                        <td>{item['message']}</td>
-                                        <td>{item['email']}</td>
-                                        <td>
-                                            <button onClick={async ()=>{await Delete(item['_id'])}} className="btn btn-sm btn-danger">
-                                                <i className="bi bi-trash"></i> Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                )
-                            })
+                            MessageList && MessageList.data ? (
+                                MessageList?.data?.map((item, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{item['fullName']}</td>
+                                            <td>{item['message']}</td>
+                                            <td>{item['email']}</td>
+                                            <td>
+                                                <button onClick={async ()=>{await Delete(item['_id'])}} className="btn btn-sm btn-danger">
+                                                    <i className="bi bi-trash"></i> Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            ) : (
+                                <tr>
+                                    <td colSpan="4">
+                                        <AdminSkeleton />
+                                    </td>
+                                </tr>
+                            )
                         }
 
                     </tbody>
