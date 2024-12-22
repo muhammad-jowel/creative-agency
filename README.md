@@ -11,15 +11,6 @@ The Creative Agency application enables users to browse creative services and pr
 ### Admin Panel
 - [Admin Login](https://creative-agency-bd-sand.vercel.app/admin/login)
 
-### Admin Credentials
-- **Email**: `abc@gmail.com`
-- **Password**: `123456`
-- **OTP for Login Verification**: `123456`
-
-### Server Link
-- [Blog List Request](https://creative-agency-lake-five.vercel.app/api/Read-Blog)
-
-
 ---
 
 ## Key Features
